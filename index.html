@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Pokémon</title>
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="img/logo.webp" class="logo">
+            
+        </div>
+        <div class="header-right">
+            <h1>Catálogo de Pokémon</h1>
+            <div id="progress-container">                
+                <span id="progress-percentage">0%</span> <br>
+                <progress id="progress-bar" value="0" max="100"></progress> 
+                <p id="pokemon-count">Pokémon cargados: 0</p> <!-- Muestra el conteo de Pokémon cargados -->
+            </div>            
+            <p id="pokemon-desarrollado">Desarrollado por Santiago Formichelli</p>
+        </div>
+    </header>
+
+
+    <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="search-box" placeholder="Buscar Pokémon..." />
+    </div>
+
+    <!-- Contenedor del catálogo -->
+    <div id="catalog-container" class="catalog"></div>
+
+    <div id="no-results" class="no-results-message">
+        <p>No se encontraron resultados.</p>
+    </div>
+
+
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

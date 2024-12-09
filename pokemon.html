@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Pokémon</title>
+    <link rel="stylesheet" href="css/pokemon.css">
+</head>
+<body>
+    <div class="pokemon-card">
+        <header class="pokemon-header">
+            <button id="back-button" class="back-button">
+                &#8592; Volver
+            </button>
+            <img id="pokemon-img" class="pokemon-img" src="" alt="Imagen Pokémon">
+            <h1 id="pokemon-name" class="pokemon-name">Nombre Pokémon</h1>
+        </header>
+
+        <section class="pokemon-details">
+            <div class="info-box">
+                <h2>Detalles Generales</h2>
+                <p><strong>Altura:</strong> <span id="pokemon-height">0.0</span> m</p>
+                <p><strong>Peso:</strong> <span id="pokemon-weight">0.0</span> kg</p>
+                <p><strong>Tipos:</strong> <span id="pokemon-types">Tipo</span></p>
+                <p><strong>Habilidades:</strong> <span id="pokemon-abilities">Habilidad</span></p>
+            </div>
+
+            <div class="description-box">
+                <h2>Descripción</h2>
+                <p id="pokemon-description">Descripción del Pokémon aquí...</p>
+            </div>
+
+        </section>
+
+        <div id="pokemon-images" class="pokemon-images-container" style="display: none;"></div>
+
+    </div>
+
+    <script src="js/pokemon.js"></script>
+</body>
+</html>

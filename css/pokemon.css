@@ -1,0 +1,273 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #252525;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.pokemon-card {
+    max-width: 1000px;
+    width: 100%;
+    background-color: #ffeeac;
+    margin-block: 3.5rem;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 0 29px 8px rgba(144, 144, 144, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;  /* Centra la tarjeta en el contenedor */
+    padding-bottom: 2.5rem;
+}
+
+/* Cabecera */
+.pokemon-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffcb05;
+    padding: 20px;
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+
+/* Imagen principal */
+.pokemon-img {
+    width: 100%;
+    max-width: 450px;
+    margin-top: -0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pokemon-img:hover {
+    transform: scale(1.05);
+}
+
+/* Nombre del Pokémon */
+.pokemon-name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000;
+    margin-block: 10px;
+    text-align: center;
+}
+
+/* Botón de retroceso */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #fff;
+    border: 2px solid #252525;
+    color: #252525;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0.5rem;
+}
+
+.back-button:hover {
+    background-color: #252525;
+    color: #ffcc01;
+}
+
+
+
+/* Contenedor de imágenes de los sprites */
+.pokemon-images-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px;
+    padding: 20px;
+    margin-top: 3.5rem;
+    justify-items: center; /* Centra las imágenes dentro de sus celdas */
+    overflow: hidden; /* Evitar que las imágenes se desborden */
+}
+
+.pokemon-sprite-container {
+    border: 3px solid #000;
+    border-radius: 150px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1)), url('../img/fondo.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Sprite del Pokémon */
+.pokemon-sprite {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;  /* Bordes redondeados para la imagen */
+    transition: transform 0.6s ease;
+}
+
+
+
+
+/* Cuando las imágenes no están disponibles, hacerlas invisibles pero mantener el espacio */
+.pokemon-sprite.hidden {
+    visibility: hidden;
+}
+
+/* Efecto al pasar el ratón sobre las imágenes */
+.pokemon-sprite:hover {
+    transform: scale(1.3);
+}
+
+/* Detalles del Pokémon */
+.pokemon-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 2.5rem;
+}
+
+.info-box, .description-box {
+    background-color: #ffea9a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.info-box h2, .description-box h2 {
+    font-size: 1.5rem;
+    color: #3a7c28;
+    margin-bottom: 10px;
+}
+
+.info-box p, .description-box p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.info-box:hover, .description-box:hover {
+    background-color: #ffe16f;
+}
+
+/* Responsividad */
+@media (max-width: 950px) {
+    .pokemon-details {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, los detalles se apilan */
+    }
+
+    .pokemon-images-container {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, las imágenes se apilan */
+    }
+
+    .pokemon-images {
+        flex-direction: column; /* Las imágenes se apilan en columna */
+        justify-content: center; /* Centra las imágenes */
+    }
+}
+
+/* Nueva sección para el planificador de ascensores */
+.container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;  /* Asegura que los elementos se acomoden en filas */
+    max-width: 1000px; /* Controla el ancho del contenedor */
+    width: 100%;
+}
+
+.input-column, .preview-column {
+    flex: 1 1 45%;  /* Hace que las columnas ocupen un 45% del ancho del contenedor */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-box {
+    border: 1px solid #000;
+    background-color: lightgray;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+}
+
+.preview-box .line {
+    position: absolute;
+    height: 100%;
+    width: 2mm;
+    display: none;
+    background-color: #000;
+}
+
+/* Estilo para la línea con pliegue */
+.line-pliegue {
+    background-color: #ff0000;
+}
+
+.line:hover {
+    display: block;
+}
+
+input[type="number"], select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #333;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #ffdc59;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ffcb05;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 1000;
+}
+
+button:hover {
+    background-color: #e0b400;
+}

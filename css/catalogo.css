@@ -1,0 +1,266 @@
+/* Fondo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #545454;
+    color: #1c3590;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Desactiva el scroll horizontal */
+}
+
+h1 {
+    font-family: 'Pokemon', sans-serif; /* La tipografía de Pokémon */
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-block: 1rem;
+}
+
+/* Contenedor del catálogo */
+#catalog-container {
+    padding: 20px;
+    max-width: 85%;
+    margin: 0 auto;
+    padding-bottom: 9rem;
+}
+
+/* Sección del catálogo con las tarjetas de Pokémon */
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    padding: 20px;
+    margin-top: -10px;
+    opacity: 1; /* Asegura que las tarjetas sean visibles */
+
+    /* Alineación horizontal y vertical de los elementos dentro de la cuadrícula */
+    justify-items: center; /* Centra los elementos horizontalmente */
+    align-items: center;   /* Centra los elementos verticalmente */
+}
+
+
+/* Estilo de las tarjetas de Pokémon */
+.pokemon-card {
+    background: linear-gradient(to bottom, #edbc00, #ffe479); /* Degradado de amarillo de Pokémon */
+    border: 0px solid #ffffff; /* Azul Pokémon */
+    border-radius: 35px 35px 0 0;
+    padding: 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: column;
+    height: auto; /* Permite que la tarjeta se ajuste automáticamente a su contenido */
+    margin-bottom: 0; /* Eliminar márgenes adicionales en la parte inferior */
+    opacity: 1; /* Inicialmente visible */
+    max-width: 300px;
+    max-height: 100%;
+}
+
+/* Suavizado de la visibilidad */
+.pokemon-card.visible {
+    opacity: 1;
+}
+
+/* Animación de opacidad */
+.pokemon-card.hidden {
+    opacity: 0;
+}
+
+/* Estilo de las imágenes de las tarjetas */
+.pokemon-card img {
+    width: 260px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto; /* Centra la imagen */
+    padding-top: 15px; /* Espacio superior */
+    flex-grow: 0; /* Asegurarse de que la imagen no crezca */
+}
+
+/* Sección del nombre del Pokémon */
+.pokemon-card .pokemon-name {
+    background-color: #0a0a0a; /* Azul Pokémon */
+    color: white;
+    padding-inline: 10px;
+    padding-block: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 0; /* Asegurarse de que el nombre no crezca más de lo necesario */
+}
+
+/* Estilo del nombre */
+.pokemon-card h3 {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 18px;
+    padding: 0;
+}
+
+/* Estilo del buscador */
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#search-box {
+    width: 50%;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: 2px solid #FFCB05; /* Amarillo Pokémon */
+    border-radius: 50px; /* Bordes redondeados */
+    background-color: #414141; /* Azul Pokémon */
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.2rem;
+}
+
+#search-box:focus {
+    border-color: #FFCB05; /* Amarillo de Pokémon */
+    box-shadow: 0 0 8px rgba(255, 203, 5, 0.5);
+}
+
+#search-box::placeholder {
+    color: #FFF; /* Color blanco para el texto del placeholder */
+    font-style: italic;
+}
+
+/* Barra de progreso */
+#progress-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: -17px;    
+    margin-top: 1rem;
+}
+
+#progress-bar {
+    width: 70%;
+    height: 30px;
+}
+
+#progress-percentage {
+    font-size: 25px;
+    color: #000;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    header {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos al inicio (izquierda) */
+    }
+
+    .header-left, .header-right {
+        flex: none;
+        width: 100%; /* Hace que cada parte ocupe el 100% de ancho */
+        margin-bottom: 20px; /* Espacio entre las secciones */
+    }
+
+    /* Se puede ajustar el tamaño de la barra de progreso y otras secciones si es necesario */
+    #progress-container {
+        width: 100%; /* Asegura que el contenedor de progreso ocupe todo el ancho */
+    }
+}
+
+/* Estilo para el encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+    padding-block: 60px;
+    background: linear-gradient(to bottom, #edbc00, #ffe479); /* Degradado de amarillo de Pokémon */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten cuando no hay suficiente espacio */
+}
+
+/* Columna de la izquierda (imagen y título) */
+.header-left {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    margin: 0 auto;
+    max-width: 45%;
+    flex: 1;
+}
+
+.logo {
+    width: 400px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2.3rem;
+}
+
+/* Columna de la derecha (barra de progreso y conteo) */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 45%;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+/* Barra de progreso */
+.progress-container {
+    display: flex;
+    align-items: center;
+}
+
+progress {
+    width: 200px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#progress-text {
+    font-weight: bold;
+}
+
+/* Estilo para el número de Pokémon cargados */
+#pokemon-count {
+    font-size: 18px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+#pokemon-desarrollado {
+    font-style: italic;  
+    color: #000;
+    margin-top: 2.5rem;
+}
+
+
+/* Estilo para el mensaje cuando no hay resultados */
+.no-results-message {
+    display: none; /* Ocultarlo por defecto */
+    color: #fff; /* Color de texto rojo oscuro */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 500px;
+    font-size: 2rem;
+}
+
+.no-results-message.visible {
+    display: block; /* Hacerlo visible */
+}
